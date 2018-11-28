@@ -328,7 +328,7 @@ Not every optimization algorithm provided by \texttt{\small ensmallen} can be
 used by every class of objective function; for instance, a gradient-based
 optimizer such as L-BFGS cannot operate on a non-differentiable objective
 function.
-As such, the best the library can attain is to maximize the flexibility
+Thus, the best the library can attain is to maximize the flexibility
 available, so that a user can easily implement a function $f(x)$ and have it
 work with as many optimizers as possible.
 
@@ -340,7 +340,8 @@ used to check that the given functions match the requirements of the
 optimizer that is being used.  When implementing an optimizer, we can assume
 that the given function to be optimized meets the required assumptions of the
 optimizers, and encode those requirements as compile-time checks
-(via \texttt{\small static\_assert}).
+(via \texttt{\small static\_assert}); this can provide much easier-to-understand
+error messages than typical compiler output for templated C++ code.
 
 For the most common case of a differentiable $f(x)$, the user only needs to
 implement two methods:
