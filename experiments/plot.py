@@ -10,9 +10,10 @@ smorms3 = np.genfromtxt("smorms3.txt")
 
 a = np.linspace(0, 5, 315)
 
-plt.rcParams.update({'font.size': 14})
+plt.rcParams.update({'font.size': 12})
 plt.rcParams.update({'font.weight': 'light'})
 
+plt.figure(figsize=(12, 6))
 plt.semilogy(a, adam, 'r-')
 plt.semilogy(a, adagrad, 'b-')
 plt.semilogy(a, rmsprop, 'g-')

@@ -1,4 +1,5 @@
 using Optim
+using LineSearches
 
 if length(ARGS) < 2
   print("need two arguments: dim, points")
@@ -25,10 +26,10 @@ for i in 1:points
 end
 
 result = optimize(t -> f(t, X, y), rand(dim),
-    LBFGS(), Optim.Options(x_tol = 0, f_tol = 0, g_tol = 0, iterations = 10))
+    LBFGS(linesearch=LineSearches.BackTracking()), Optim.Options(x_tol = 0, f_tol = 0, g_tol = 0, iterations = 10))
 print(result)
 print("\n")
 
 @time optimize(t -> f(t, X, y), rand(dim),
-    LBFGS(), Optim.Options(x_tol = 0, f_tol = 0, g_tol = 0, iterations = 10))
+    LBFGS(linesearch=LineSearches.BackTracking()), Optim.Options(x_tol = 0, f_tol = 0, g_tol = 0, iterations = 10))
 
